@@ -19,18 +19,21 @@ package org.example;
 
 public class harshad {
 
-    public static int addDigits(int num) {
-        int sum = 0;
-       while(num != 0) {
-           sum += num%10;
-           num /= 10;
-//           System.out.println(num + " " + sum);
-       }
+    public static int addDigits(int sum, int num) {
+        if (num != 0) {
+            sum += num % 10;
+            return addDigits(sum, num/10);
+        }
+//       while(num != 0) {
+//           sum += num%10;
+//           num /= 10;
+////           System.out.println(num + " " + sum);
+//       }
        return sum;
     }
 
     public static boolean isHarshad(int num) {
-        int sum = addDigits(num);
+        int sum = addDigits(0, num);
         return num % sum == 0;
     }
 }
